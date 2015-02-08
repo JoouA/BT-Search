@@ -19,9 +19,6 @@ if (isset($info['error'])) {
   exit();
 }
 
-
-// 创建短地址
-$dwz = create_dwz($siteconf['url'].'info.php?magnetic='.$_GET['magnetic']);
 ?>
 <div class="container">
 	<!-- 网站导航栏 -->
@@ -42,7 +39,6 @@ $dwz = create_dwz($siteconf['url'].'info.php?magnetic='.$_GET['magnetic']);
     		<p>文件数：<?php echo $info['quantity']; ?></p>
         <p>Hash：<?php echo $_GET['magnetic']; ?></p>
     		<p>创建时间：<?php echo $info['cdate']; ?></p>
-        <p>分享给好友：<a href="<?php echo $dwz; ?>"><?php echo $dwz; ?></a></p>
     	</div>
     	
     	<div class="link">
@@ -59,8 +55,6 @@ $dwz = create_dwz($siteconf['url'].'info.php?magnetic='.$_GET['magnetic']);
 
     	<div class="dianbo">
             <button class="btn btn-primary" data-toggle="modal" data-target="#qr"><i class="glyphicon glyphicon-qrcode"></i></button>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#bofang">网盘观看</button>
-            <a  class="btn btn-primary" target="_blank" href="http://yun.dybeta.com/index.php#!u=<?php echo $info['magnetic']; ?>">在线点播{压缩包不能播放哦}</a>
     	</div>
 
         <div class="infoad">
@@ -79,27 +73,6 @@ $dwz = create_dwz($siteconf['url'].'info.php?magnetic='.$_GET['magnetic']);
     
 </div>
 
-<!-- 百度网盘播放 -->
-<div class="modal fade" id="bofang" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">使用网盘下载</h4>
-      </div>
-      <div class="modal-body">
-        提供一个百度云账户：<br><br>
-        账号：dodc8ob9tahnko6w@outlook.com<br><br>
-        密码：0mXt3OUvUKnKYT<br><br>
-        如何使用：<a href="http://jingyan.baidu.com/article/c843ea0b7bba7b77931e4ad7.html">看这个</a><br>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- QR -->
 <div class="modal fade" id="qr" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -109,7 +82,7 @@ $dwz = create_dwz($siteconf['url'].'info.php?magnetic='.$_GET['magnetic']);
         <h4 class="modal-title" id="myModalLabel">QR Code</h4>
       </div>
       <div class="modal-body qr">
-        <img src="https://chart.googleapis.com/chart?cht=qr&chs=280x280&choe=UTF-8&chld=L|2&chl=magnet:?xt=urn:btih:<?php echo $_GET['magnetic']; ?>&level=L&size=260">
+        <img src="http://qr.liantu.com/api.php?text=magnet:?xt=urn:btih:<?php echo $_GET['magnetic']; ?>&level=L&size=260">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>

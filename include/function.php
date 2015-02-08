@@ -1,30 +1,6 @@
 <?php
 
 /**
-* 热门关键词列表
-*/
-function Popular_keywords() 
-{
-
-    $cache = phpFastCache("files", array("path"=>"cache"));
-    $url = 'http://www.wandafilm.com/homePage.do?m=getOnShowListJSON';
-    $content = $cache->get('Popularkeywords');
-        if (!$content) {
-            $html = file_get_contents($url);
-            $cont = json_decode(iconv("gb2312", "utf-8//IGNORE",$html));
-            foreach ($cont as $key => $value) {
-                foreach ($value as $value) {
-                    $content[] = $value->filmName;
-                }
-            }
-            $cache->set('Popularkeywords',$content, 864000);
-        }
-    return $content;
-
-}
-
-
-/**
 * 标题截断
 */
 function title_truncation($title, $enc='utf-8')
@@ -181,41 +157,4 @@ function Collection($keyword, $page)
 	} else {
 		return false;
 	}
-}
-
-
-/**
-* 记录搜索词日志
-*/
-function search_log($msg)
-{
-	// $memcache_obj = memcache_connect("localhost", 11211);
-	// $memcache_obj->add(time(), $msg, false, time()+87300);
-}
-
-
-/**
-* 生成信息页短地址
-*/
-function create_dwz($url)
-{
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, 'http://dwz.soubt.org/api/create/');
-	curl_setopt($ch, CURLOPT_HEADER, 0);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_POST, 1);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, array('url' => $url));
-	$curl_result = curl_exec($ch);
-	if ($curl_result == FALSE) {
-		return curl_error($ch);
-	} else {
-		$result_data = json_decode($curl_result, TRUE);
-		if ($result_data['statusCode'] == '000000') {
-			return $result_data['url'];
-		} else {
-			return $result_data['error'];
-		}
-	}
-	curl_close($ch);
-
 }
