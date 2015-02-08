@@ -101,17 +101,18 @@ function get_shahinfo($hash)
 */
 function Curl_content($keyword, $page = '')
 {
-	$cache = phpFastCache("files", array("path"=>"cache"));
-	$htmlconter = $cache->get($keyword.$page);
-	if ($htmlconter == null) {
-		$url = 'http://www.torrentkitty.org/search/';
-		$content = get_data($url.$keyword.$page);
-		$cache->set($keyword.$page, $content, 2592000);
-		return $content;
-	} else {
-		return $htmlconter;
-	}
+ 	$cache = new Cache();
+ 	$htmlconter = $cache->retrieve($keyword.$page);
+	if ($htmlconter === null) {
+ 		$url = 'http://www.torrentkitty.org/search/';
+ 		$content = get_data($url.$keyword.$page);
+ 		$cache->store($keyword.$page, $content, 2592000);
+ 		return $content;
+ 	} else {
+ 		return $htmlconter;
+ 	}
 }
+ 
 
 /*
 * 计算翻页页数
