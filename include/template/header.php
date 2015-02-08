@@ -6,7 +6,6 @@ ob_start();
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
-	<title><?php echo $siteconf['title']; ?></title>
 	<meta name="keywords" content="<?php echo $siteconf['keywords']; ?>" />
 	<meta name="description" content="<?php echo $siteconf['description']; ?>" />
 
@@ -14,6 +13,3 @@ ob_start();
 	<link rel="stylesheet" href="<?php echo $siteconf['url'].'public/css/bootstrap-theme.css'; ?>">
 	<link href="<?php echo $siteconf['url'].'public/css/style.css'; ?>" rel="stylesheet">
 	<script type="text/javascript" src="<?php echo $siteconf['url'].'public/js/jquery.min.js'; ?>"></script>
-	<!--[if lte IE 7]><script>window.location.href='http://cdn.dmeng.net/upgrade-your-browser.html';</script><![endif]-->
-</head>
-<body>

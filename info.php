@@ -20,6 +20,10 @@ if (isset($info['error'])) {
 }
 
 ?>
+
+  <title><?php echo $info['title']. '|' .$siteconf['title']; ?></title>
+  </head>
+<body>
 <div class="container">
 	<!-- 网站导航栏 -->
 		<div class="navbar navbar-default" role="navigation">

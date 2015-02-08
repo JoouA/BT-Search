@@ -54,7 +54,9 @@ if (!empty($_GET['keyword'])) {
 
 ?>
 
-
+  <title><?php echo $keyword. '|' .$siteconf['title']; ?></title>
+  </head>
+<body>
 <div class="container">
 	<!-- 网站导航栏 -->
 		<div class="navbar navbar-default" role="navigation">
