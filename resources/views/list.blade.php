@@ -50,7 +50,10 @@
 			}
 			echo '<span class="current">'. $page .'</span>';
 
-			for ($i=$page+1; $i < $page+10; $i++) {
+
+			$backPageNumber = $list['pageTotal'] - $page;
+			if($backPageNumber > 10) { $backPageNumber=10; }
+			for ($i=$page+1; $i < $page+$backPageNumber; $i++) {
 				echo '<a href="javascript:void(0)"  onclick="pagination('. $i .')">'. $i .'</a>';
 			}
 		}
