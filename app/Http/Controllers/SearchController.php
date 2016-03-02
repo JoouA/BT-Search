@@ -3,7 +3,7 @@
  * @Author: kslr
  * @Date:   2016-03-01 14:39:24
  * @Last Modified by:     kslr
- * @Last Modified time: 2 2016-03-02 09:01:07
+ * @Last Modified time: 2 2016-03-02 09:12:51
  */
 
 namespace App\Http\Controllers;
@@ -21,13 +21,13 @@ class SearchController extends Controller
 
 	public function index($keyword, $page=1)
 	{
-		//$mark = md5(sprintf('%s=@%s', $keyword, $page));
-		//if(Cache::has($mark)) {
-		//	$list = Cache::get($mark);
-		//} else {
+		$mark = md5(sprintf('%s=@%s', $keyword, $page));
+		if(Cache::has($mark)) {
+			$list = Cache::get($mark);
+		} else {
 			$list = $this->search($keyword, $page);
-		//	Cache::put($mark, $list, 1440);
-		//}
+			Cache::put($mark, $list, 1440);
+		}
 
 		return View::make('list', [
 			'list'		=>	$list,
