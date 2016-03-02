@@ -2,12 +2,13 @@
 /**
  * @Author: kslr
  * @Date:   2016-03-01 14:39:24
- * @Last Modified by:     kslr
- * @Last Modified time: 2 2016-03-02 09:12:51
+ * @Last Modified by:     Kslr
+ * @Last Modified time: 2 2016-03-02 20:42:23
  */
 
 namespace App\Http\Controllers;
 
+use Log;
 use View;
 use Cache;
 use GuzzleHttp;
@@ -28,6 +29,8 @@ class SearchController extends Controller
 			$list = $this->search($keyword, $page);
 			Cache::put($mark, $list, 1440);
 		}
+
+		Log::info($keyword);
 
 		return View::make('list', [
 			'list'		=>	$list,
@@ -73,7 +76,7 @@ class SearchController extends Controller
 		];
 
 		foreach ($document->find("table[id=archiveResult] tr") as $key => $value) {
-			if($key != 0 && count($value->find('td')) != 4) {
+			if($key != 0 && isset($value->find('td')[3]->find('a')[1])) {
 				$data['data'][$key]['name'] 		=	$value->find('td')[3]->find('a')[1]->attr('title');
 				$data['data'][$key]['size'] 		=	$value->find('td')[1]->text();
 				$data['data'][$key]['upload_date'] 	=	$value->find('td')[2]->text();
