@@ -28,7 +28,7 @@
 		@if($list['data'])
 			@foreach($list['data'] as $item)
 				<tr>
-					<td>{{ $item['name'] }}</td>
+					<td>{{ str_limit($item['name'], 100) }}</td>
 					<td>{{ $item['size'] }}</td>
 					<td>{{ $item['upload_date'] }}</td>
 					<td><a href="{{ $item['magnet'] }}">下载</a></td>
@@ -42,13 +42,15 @@
 
 <div class="pagination">
 	<?php
-		if($page > 5) {
-			for ($i=$page-5; $i < $page; $i++) { 
-				echo '<a href="javascript:void(0)" onclick="pagination('. $i .')">'. $i .'</a>';
+		if($list['pageTotal'] > 5) {
+			if($page > 5) {
+				for ($i=$page-5; $i < $page; $i++) { 
+					echo '<a href="javascript:void(0)" onclick="pagination('. $i .')">'. $i .'</a>';
+				}
 			}
 			echo '<span class="current">'. $page .'</span>';
 
-			for ($i=$page+1; $i < $page+5; $i++) {
+			for ($i=$page+1; $i < $page+10; $i++) {
 				echo '<a href="javascript:void(0)"  onclick="pagination('. $i .')">'. $i .'</a>';
 			}
 		}
