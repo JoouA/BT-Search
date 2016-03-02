@@ -43,13 +43,12 @@
 <div class="pagination">
 	<?php
 		if($list['pageTotal'] > 5) {
-			if($page > 5) {
-				for ($i=$page-5; $i < $page; $i++) { 
-					echo '<a href="javascript:void(0)" onclick="pagination('. $i .')">'. $i .'</a>';
-				}
+			if(($page-5) <= 1) { $frontPageCount=1; } else { $frontPageCount = $page-5; }
+			for ($i=$frontPageCount; $i < $page; $i++) {
+				echo '<a href="javascript:void(0)" onclick="pagination('. $i .')">'. $i .'</a>';
 			}
+			
 			echo '<span class="current">'. $page .'</span>';
-
 
 			$backPageNumber = $list['pageTotal'] - $page;
 			if($backPageNumber > 10) { $backPageNumber=10; }
