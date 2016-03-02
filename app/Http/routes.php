@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
+Route::get('/search/{keyword}_{page?}.html', 'SearchController@index')->where('page', '[0-9]+');
+
 
 /*
 |--------------------------------------------------------------------------

@@ -6,7 +6,10 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.2.*"
+        "laravel/framework": "5.2.*",
+        "guzzlehttp/guzzle": "^6.1",
+        "symfony/psr-http-message-bridge": "^0.2.0",
+        "imangazaliev/didom": "^1.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

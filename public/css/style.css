@@ -1,0 +1,236 @@
+body
+{
+  background: white;
+  color: black;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12pt;
+}
+
+a:link, a:visited { color: #0000CC; }
+a:hover { color: #6666CC; }
+
+h1, h2, h3
+{
+  margin: 0px;
+}
+
+h1
+{
+  font-size: 300%;
+}
+
+.pintable, .specstable
+{
+  border-collapse: collapse;
+}
+
+.pintable td, .specstable td
+{
+  border: 1px solid black;
+  padding: 3px;
+  vertical-align: top;
+}
+
+.pintable th, .specstable th
+{
+  border: 1px solid black;
+  border-bottom: 3px solid black;
+  padding: 3px;
+}
+
+.pindiagram
+{
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.leftpinsym
+{
+  padding-right: 5px;
+}
+
+.rightpinsym
+{
+  padding-left: 5px;
+}
+
+.leftpinsym, .rightpinnum, .righttoppinnum, .rightbottompinnum
+{
+  text-align: right;
+}
+
+.rightpinsym, .leftpinnum, .lefttoppinnum, leftbottompinnum
+{
+  text-align: left;
+}
+
+.leftpinnum, .rightpinnum
+{
+  min-width: 50px;
+  padding: 5px;
+}
+
+.leftpinnum
+{
+  border: 0;
+  border-left: 1px solid black;
+}
+
+.rightpinnum
+{
+  border: 0;
+  border-right: 1px solid black;
+}
+
+.lefttoppinnum, .righttoppinnum
+{
+  border: 0;
+  border-bottom: 1px solid black;
+}
+
+.leftbottompinnum, .rightbottompinnum
+{
+  border: 0;
+  border-top: 1px solid black;
+}
+
+#dpindiagram
+{
+  float: left;
+  /*border: 1px solid red;*/
+ /* padding: 10px 2% 10px 2%;*/
+ /*	margin: 20px 1% 20px 2%;*/
+  width: 40%;
+  voice-family: "\"}\"";
+  voice-family: inherit;
+  width: 40%;
+}
+
+html>body #dpindiagram
+{
+  width: 40%;
+}
+
+
+#dpindiagramwide
+{
+}
+
+#dspecs, #dnotes
+{
+  clear: both;
+  margin-top: 10px;
+}
+
+.spcaption, .note
+{
+  font-style: italic;
+  font-size: 80%;
+}
+
+.specstable
+{
+}
+
+.neg
+{
+  text-decoration: overline;
+}
+
+.search
+{
+  text-align: center;
+  margin: 20px;
+  display: block;
+}
+
+.searchbox
+{
+  padding: 10px;
+  text-align: center;
+}
+
+.searchbox input
+{
+  font-size: 12pt;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.footer
+{
+  text-align: center;
+  width: 0 auto;
+}
+
+/*#dpintable
+{
+  /*float: right;
+  padding: 10px 2% 10px 2%;
+  border: 1px solid red;
+  margin: 20px 2% 20px 1%;
+  voice-family: "\"}\"";
+  voice-family: inherit;
+  width: 41%;
+}
+
+html>body #dpintable
+{
+  width: 41%;
+}*/
+#loaders
+{
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.loadbutton
+{
+  background: #e0e0e0;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+textarea.yaml
+{
+  font-family: monospace;
+  padding: 3px;
+  font-size: 12pt;
+  background: #f0f0f0;
+/*  overflow: scroll;*/
+}
+
+#editor
+{
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#editortips
+{
+  display: none;
+  color: #808080;
+  font-style: italic;
+  font-size: 75%;
+}
+
+#editortips code
+{
+  font-weight: bold;
+}
+
+span.tip
+{
+  color: #808080;
+  font-style: italic;
+  font-size: smaller;
+}
+
+#errors
+{
+  background: #ffa0a0;
+  padding: 20px;
+}
