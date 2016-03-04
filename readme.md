@@ -14,6 +14,7 @@ BT搜索，源站为torrentkitty.net，支持全部功能。
 * Mbstring PHP Extension
 * Tokenizer PHP Extension
 * Composer
+
 #####开始安装
 <pre>
 git clone git@github.com:kslr/BT-Search.git
