@@ -2,8 +2,8 @@
 /**
  * @Author: kslr
  * @Date:   2016-03-01 14:39:24
- * @Last Modified by:     Kslr
- * @Last Modified time: 2 2016-03-02 20:42:23
+ * @Last Modified by:   Kslr
+ * @Last Modified time: 2016-03-06 20:53:10
  */
 
 namespace App\Http\Controllers;
@@ -80,7 +80,7 @@ class SearchController extends Controller
 				$data['data'][$key]['name'] 		=	$value->find('td')[3]->find('a')[1]->attr('title');
 				$data['data'][$key]['size'] 		=	$value->find('td')[1]->text();
 				$data['data'][$key]['upload_date'] 	=	$value->find('td')[2]->text();
-				$data['data'][$key]['magnet']  		=	$value->find('td')[3]->find('a')[1]->attr('href');
+				$data['data'][$key]['magnet']  		=	explode('&', $value->find('td')[3]->find('a')[1]->attr('href'))[0];
 			} else {
 				$data['data'] = [];
 			}
